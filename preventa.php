@@ -110,19 +110,26 @@ a {
                         <input type="hidden" id="fecha" value="<?php echo $fecha_actual; ?>">
                         <div class="row focuss"><br>
                             <div class="form-group col-md-5">
-                                <div id="a">
-                                    <label>Buscar Producto (Código)</label>
-                                    <input type="text" id="codigo" name="codigo" style="width:100% !important"
-                                        class="form-control usage" placeholder="Ingrese Código de producto"
-                                        style="border-radius:0px">
-                                </div>
-                                <div hidden id="b">
-                                    <label id='buscar_habilitado'>Buscar Producto (Descripción)</label>
-                                    <div id="scrollable-dropdown-menu">
-                                        <input type="text" id="producto_buscar" name="producto_buscar"
-                                            style="width:100% !important" class="form-control usage typeahead"
-                                            placeholder="Ingrese la Descripción de producto" data-provide="typeahead"
+                                <div class="row">
+                                    <div id="a" class='col-md-9'>
+                                        <label>Buscar Producto (Código)</label>
+                                        <input type="text" id="codigo" name="codigo" style="width:100% !important"
+                                            class="form-control usage" placeholder="Ingrese Código de producto"
                                             style="border-radius:0px">
+                                    </div>
+                                    <div hidden id="b" class='col-md-9'>
+                                        <label id='buscar_habilitado'>Buscar Producto/Servicio (Descripción)</label>
+                                        <div id="scrollable-dropdown-menu">
+                                            <input type="text" id="producto_buscar" name="producto_buscar"
+                                                style="width:100% !important" class="form-control usage typeahead"
+                                                placeholder="Ingrese la Descripción de producto o servicio" data-provide="typeahead"
+                                                style="border-radius:0px">
+                                        </div>
+                                    </div>
+                                    <div class='col-md-3'><br>
+                                            <button type="button" id="change" style="margin-top:5%;" name="change"
+                                                class="btn btn-sm btn-success pull-right usage"><i
+                                                    class="fa fa-exchange"></i> F3 Descripción</button>
                                     </div>
                                 </div>
                             </div>
@@ -140,7 +147,7 @@ a {
                                     <!-- AGREGAR DETALLES DE PREVENTA -->
                                     <a data-toggle='modal' href='agregar_detalles_trabajo.php'  style='margin-right:1%;'  data-target='#viewModal3' data-refresh='true' class='btn btn-sm btn-info pull-right'id="btnDetalleTrabajo"></i> Detalles de Trabajo</a>
                                     <!-- AGREGAR SERVICIO O MANO DE OBRA -->
-                                    <a data-toggle='modal' href='agregar_servicio.php'  style='margin-right:1%;'  data-target='#viewModal2' data-refresh='true' class='btn btn-sm btn-warning pull-right'></i> Servicio</a>
+                                    <!-- <a data-toggle='modal' href='agregar_servicio.php'  style='margin-right:1%;'  data-target='#viewModal2' data-refresh='true' class='btn btn-sm btn-warning pull-right'></i> Servicio</a> -->
                             </div>
                         </div>
                         <div class="row">
