@@ -1,8 +1,8 @@
 <?php
 //$username = "root";
 //$password = "admin$2021**.";
-$username = "megacar";
-$password = "Megacar*22@";
+$username = "root";
+$password = "1234";
 $hostname = "localhost";
 $dbname = "megacar";
 date_default_timezone_set('America/El_Salvador');

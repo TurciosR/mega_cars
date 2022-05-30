@@ -157,11 +157,11 @@ a {
                                             style="border-radius:0px">
                                     </div>
                                     <div hidden id="b" class='col-md-9'>
-                                        <label id='buscar_habilitado'>Buscar Producto (Descripción)</label>
+                                        <label id='buscar_habilitado'>Buscar Producto/Servicio (Descripción)</label>
                                         <div id="scrollable-dropdown-menu">
                                             <input type="text" id="producto_buscar" name="producto_buscar"
                                                 style="width:100% !important" class=" form-control usage typeahead"
-                                                placeholder="Ingrese la Descripción de producto"
+                                                placeholder="Ingrese la Descripción de producto o servicio"
                                                 data-provide="typeahead" style="border-radius:0px">
                                         </div>
                                     </div>

@@ -104,7 +104,25 @@ $(document).ready(function() {
         var prod = prod0.split("|");
         var id_prod = prod[0];
         var descrip = prod[1];
-        addProductList(id_prod, "D");
+        var precio_venta_servicio = prod[2];
+        /**
+         * Verificamos si lo que selecciono fue un servicio
+         */
+         if(id_prod == -9999){
+            $.ajax({
+                type: "POST",
+                url: "agregar_servicio.php",
+                data: "process=obtener&nombre=" + descrip + "&monto=" + precio_venta_servicio,
+                dataType: "json",
+                success: function (xdatos) {
+                    display_notify('Success', 'Servicio cargado correctamente!');
+                    $("#inventable").prepend(xdatos.servicio);
+                    totales();
+                }
+            });
+        }else{
+            addProductList(id_prod, "D");
+        }
     }
 
     var urlprocess = 'venta.php';
