@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4deb2
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3306
--- Tiempo de generación: 13-06-2022 a las 12:49:29
--- Versión del servidor: 10.5.15-MariaDB-0+deb11u1
--- Versión de PHP: 7.4.28
+-- Servidor: localhost
+-- Tiempo de generación: 11-05-2022 a las 12:21:43
+-- Versión del servidor: 10.3.34-MariaDB-0+deb10u1
+-- Versión de PHP: 7.3.31-1~deb10u1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -130,12 +130,7 @@ INSERT INTO `apertura_caja` (`id_server`, `unique_id`, `id_sucursal`, `id_apertu
 (0, 'S626d4b14238307.09907930', 1, 18, '2022-04-30', '08:43:32', 1, 0, 1, 2, 10, '0.00', '0.00', 0, 0, 0, 0, 0, 10),
 (0, 'S627917069ec0a4.93807666', 1, 19, '2022-05-09', '07:28:38', 1, 1, 2, 1, 50, '0.00', '0.00', 0, 0, 0, 0, 0, 60),
 (0, 'S627a675c674501.13453363', 1, 20, '2022-05-10', '07:23:40', 1, 1, 2, 1, 50, '0.00', '0.00', 0, 0, 0, 0, 0, 88.99),
-(0, 'S627bbceb11c060.26690929', 1, 21, '2022-05-11', '07:40:59', 1, 0, 2, 2, 50, '0.00', '0.00', 0, 0, 0, 0, 0, 50),
-(0, 'S627d0bc5e9c5d2.17114806', 1, 22, '2022-05-12', '07:29:41', 1, 0, 1, 2, 1, '0.00', '0.00', 0, 0, 0, 0, 0, 1),
-(0, 'S629e1acfe68778.63328289', 1, 23, '2022-06-06', '09:18:39', 1, 0, 1, 2, 11, '0.00', '0.00', 0, 0, 0, 0, 0, 11),
-(0, 'S62a0b037232056.08883371', 1, 24, '2022-06-08', '08:20:39', 1, 0, 1, 2, 22, '0.00', '0.00', 0, 0, 0, 0, 0, 22),
-(0, 'S62a3741ce23099.05807429', 1, 25, '2022-06-10', '10:41:00', 1, 0, 1, 2, 10, '0.00', '0.00', 0, 0, 0, 0, 0, 430),
-(0, 'S62a760b3e05221.07980052', 1, 26, '2022-06-13', '10:07:15', 1, 1, 1, 1, 20, '0.00', '0.00', 0, 0, 0, 0, 1, 0);
+(0, 'S627bbceb11c060.26690929', 1, 21, '2022-05-11', '07:40:59', 1, 1, 2, 1, 50, '0.00', '0.00', 0, 0, 0, 0, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -185,7 +180,7 @@ CREATE TABLE `caja` (
 --
 
 INSERT INTO `caja` (`id_server`, `unique_id`, `id_sucursal`, `id_caja`, `nombre`, `serie`, `desde`, `hasta`, `correlativo_dispo`, `resolucion`, `fecha`, `activa`) VALUES
-(1, 'O60d7df1abdfca2.64813667', 1, 1, 'Caja 1', 'A', 1, 1000000, 18, 'RES-000-0001', '2018-06-21', 1);
+(1, 'O60d7df1abdfca2.64813667', 1, 1, 'Caja 1', 'A', 1, 1000000, 12, 'RES-000-0001', '2018-06-21', 1);
 
 -- --------------------------------------------------------
 
@@ -584,12 +579,7 @@ INSERT INTO `controlcaja` (`id_server`, `unique_id`, `id_sucursal`, `id_corte`, 
 (0, 'S6279b7c2dc9fb8.29904889', 1, 18, '', 2, 19, '1', 1, NULL, '2022-05-09', '18:49:43', 0, 0, 5, 6, 2, NULL, NULL, 10, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 50, NULL, 0, NULL, 60, NULL, 60, 0, 0, NULL, NULL, 0, 0, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, 'C', 0, 0, 0, 0, 0, '0.00', 0, 0, 0, '0.00', 0, 0, 0, '0.00', 0),
 (0, 'S6279b7d5b5b9c7.58411122', 1, 19, '', 2, 19, '1', 1, NULL, '2022-05-09', '18:54:37', 7, 0, 5, 6, 2, NULL, NULL, 10, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 50, NULL, 0, NULL, 60, NULL, 60, 0, 0, NULL, NULL, 0, 0, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, 'Z', 0, 0, 0, 0, 0, '0.00', 0, 0, 0, '0.00', 0, 0, 0, '0.00', 0),
 (0, 'S627aed530f56b9.93819593', 1, 20, '', 2, 20, '1', 1, NULL, '2022-05-10', '16:41:45', 0, 0, 8, 10, 3, NULL, NULL, 38.99, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 50, NULL, 0, NULL, 88.99, NULL, 89, 0.01, 0, NULL, NULL, 0, 0, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, 'C', 0, 0, 0, 0, 0, '0.00', 0, 0, 0, '0.00', 0, 0, 0, '0.00', 0),
-(0, 'S627aeda4a886a5.77821329', 1, 21, '', 2, 20, '1', 1, NULL, '2022-05-10', '16:55:29', 11, 0, 8, 10, 3, NULL, NULL, 38.99, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 50, NULL, 0, NULL, 88.99, NULL, 88.99, 0, 0, NULL, NULL, 0, 0, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, 'Z', 0, 0, 0, 0, 0, '0.00', 0, 0, 0, '0.00', 0, 0, 0, '0.00', 0),
-(0, 'S627d0bc08276b1.17129308', 1, 22, '', 2, 21, NULL, 1, NULL, '2022-05-11', '21:00:00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, NULL, 0, NULL, 50, NULL, 50, 0, 0, NULL, NULL, 0, 0, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, 'C', 0, 0, 0, 0, 0, '0.00', 0, 0, 0, '0.00', 0, 0, 0, '0.00', 0),
-(0, 'S629e1aca363f25.78795893', 1, 23, '', 1, 22, NULL, 1, NULL, '2022-05-12', '21:00:00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NULL, 0, NULL, 1, NULL, 1, 0, 0, NULL, NULL, 0, 0, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, 'C', 0, 0, 0, 0, 0, '0.00', 0, 0, 0, '0.00', 0, 0, 0, '0.00', 0),
-(0, 'S62a0b0305499b5.17381197', 1, 24, '', 1, 23, NULL, 1, NULL, '2022-06-06', '21:00:00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, NULL, 0, NULL, 11, NULL, 11, 0, 0, NULL, NULL, 0, 0, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, 'C', 0, 0, 0, 0, 0, '0.00', 0, 0, 0, '0.00', 0, 0, 0, '0.00', 0),
-(0, 'S62a374188e4152.96514975', 1, 25, '', 1, 24, NULL, 1, NULL, '2022-06-08', '21:00:00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, NULL, 0, NULL, 22, NULL, 22, 0, 0, NULL, NULL, 0, 0, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, 'C', 0, 0, 0, 0, 0, '0.00', 0, 0, 0, '0.00', 0, 0, 0, '0.00', 0),
-(0, 'S62a760ade99a47.62989614', 1, 26, '', 1, 25, NULL, 1, NULL, '2022-06-10', '21:00:00', 0, 0, 12, 17, 0, 0, 420, 420, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, NULL, 0, NULL, 430, NULL, 430, 0, 0, NULL, NULL, 0, 0, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, 'C', 0, 0, 0, 0, 0, '0.00', 0, 0, 0, '0.00', 0, 0, 0, '0.00', 0);
+(0, 'S627aeda4a886a5.77821329', 1, 21, '', 2, 20, '1', 1, NULL, '2022-05-10', '16:55:29', 11, 0, 8, 10, 3, NULL, NULL, 38.99, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 50, NULL, 0, NULL, 88.99, NULL, 88.99, 0, 0, NULL, NULL, 0, 0, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, 'Z', 0, 0, 0, 0, 0, '0.00', 0, 0, 0, '0.00', 0, 0, 0, '0.00', 0);
 
 -- --------------------------------------------------------
 
@@ -858,17 +848,7 @@ INSERT INTO `detalle_apertura` (`id_server`, `unique_id`, `id_sucursal`, `id_det
 (0, 'S6276b12246c5b6.40684011', 0, 35, 18, 2, 0, '2022-04-30', '21:00:00', 0, 0),
 (0, 'S627917069fa3d8.74989396', 1, 36, 19, 1, 2, '2022-05-09', '07:28:38', 0, 1),
 (0, 'S627a675c67a263.60522538', 1, 37, 20, 1, 2, '2022-05-10', '07:23:40', 0, 1),
-(0, 'S627bbceb128107.76538470', 1, 38, 21, 1, 2, '2022-05-11', '07:40:59', 0, 1),
-(0, 'S627d0bc0e3db08.36066259', 0, 39, 21, 2, 0, '2022-05-11', '21:00:00', 0, 0),
-(0, 'S627d0bc6113cc4.59616592', 1, 40, 22, 1, 1, '2022-05-12', '07:29:41', 0, 1),
-(0, 'S629e1aca52da02.05279538', 0, 41, 22, 2, 0, '2022-05-12', '21:00:00', 0, 0),
-(0, 'S629e1ad009e9d8.15545495', 1, 42, 23, 1, 1, '2022-06-06', '09:18:39', 0, 1),
-(0, 'S62a0b030adebf1.12966905', 0, 43, 23, 2, 0, '2022-06-06', '21:00:00', 0, 0),
-(0, 'S62a0b03733c2e6.63879543', 1, 44, 24, 1, 1, '2022-06-08', '08:20:39', 0, 1),
-(0, 'S62a3741896c1f2.29365729', 0, 45, 24, 2, 0, '2022-06-08', '21:00:00', 0, 0),
-(0, 'S62a3741cf086a6.27182801', 1, 46, 25, 1, 1, '2022-06-10', '10:41:00', 0, 1),
-(0, 'S62a760ae140169.94261315', 0, 47, 25, 2, 0, '2022-06-10', '21:00:00', 0, 0),
-(0, 'S62a760b403de51.11687537', 1, 48, 26, 1, 1, '2022-06-13', '10:07:15', 1, 1);
+(0, 'S627bbceb128107.76538470', 1, 38, 21, 1, 2, '2022-05-11', '07:40:59', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1133,13 +1113,7 @@ INSERT INTO `factura` (`id_server`, `unique_id`, `id_sucursal`, `id_factura`, `i
 (0, 'S6279b5b92af425.06671068', 1, 41, 153, '2022-05-09', '0000000006_TIK', '0000004_REF', 4, 5, 5, 5, 0, 0, 0, 5, 5, 0, 0, 2, 0, 2, 1, 1, 'TICKET', 'A', '0', '6', '18:46:07', 1, 19, 19, 0, 0, 0, 0, 'TIK', 1, '0', '0', '', '', 0, ''),
 (0, 'S627a8f9f41c268.55939027', 1, 42, 154, '2022-05-10', '0000000008_TIK', '0000005_REF', 5, 4, 4, 4, 0, 0, 0, 4, 4, 0, 0, 2, 0, 2, 1, 1, 'TICKET', 'A', '0', '8', '10:28:56', 1, 20, 20, 0, 0, 0, 0, 'TIK', 1, '0', '0', '', '', 0, ''),
 (0, 'S627ad6703edfd6.73561009', 1, 43, 155, '2022-05-10', '0000000009_TIK', '0000006_REF', 6, 15, 15, 15, 0, 0, 0, 15, 15, 0, 0, 2, 0, 2, 1, 1, 'TICKET', 'A', '0', '9', '15:17:55', 1, 20, 20, 0, 0, 0, 0, 'TIK', 1, '0', '0', '', '', 0, ''),
-(0, 'S627ad9b638ba47.42986889', 1, 44, 156, '2022-05-10', '0000000010_TIK', '0000007_REF', 7, 19.99, 19.99, 19.99, 0, 0, 0, 19.99, 19.99, 0, 0, 2, 0, 2, 1, 1, 'TICKET', 'A', '0', '10', '15:31:55', 1, 20, 20, 0, 0, 0, 0, 'TIK', 1, '0', '0', '', '', 0, ''),
-(0, 'S62a37b4ff10530.25535035', 1, 45, -1, '2022-06-10', '0000000012_TIK', '', 0, 35, 35, 35, 0, 0, 0, 35, 35, 0, 0, 1, 0, 1, 1, 0, 'TICKET', 'A', '0', '12', '11:11:43', 1, 25, 25, 0, 0, 0, 0, 'TIK', 1, '0', '0', '', '', 0, ''),
-(0, 'S62a383d878fce9.83065855', 1, 46, -1, '2022-06-10', '0000000013_TIK', '', 0, 35, 35, 35, 0, 0, 0, 35, 35, 0, 0, 1, 0, 1, 1, 1, 'TICKET', 'A', '0', '13', '11:48:08', 1, 25, 25, 0, 0, 0, 0, 'TIK', 1, '0', '0', '', '', 0, ''),
-(0, 'S62a383f5961486.30896138', 1, 47, -1, '2022-06-10', '0000000014_TIK', '', 0, 80, 80, 80, 0, 0, 0, 80, 80, 0, 0, 1, 0, 1, 1, 1, 'TICKET', 'A', '0', '14', '11:48:37', 1, 25, 25, 0, 0, 0, 0, 'TIK', 1, '0', '0', '', '', 0, ''),
-(0, 'S62a3847c0ee151.05818984', 1, 48, -1, '2022-06-10', '0000000015_TIK', '', 0, 165, 165, 165, 0, 0, 0, 165, 165, 0, 0, 1, 0, 1, 1, 1, 'TICKET', 'A', '0', '15', '11:50:52', 1, 25, 25, 0, 0, 0, 0, 'TIK', 1, '0', '0', '', '', 0, ''),
-(0, 'S62a3ea521f1884.20390460', 1, 49, -1, '2022-06-10', '0000000016_TIK', '', 0, 70, 70, 70, 0, 0, 0, 70, 70, 0, 0, 1, 0, 1, 1, 1, 'TICKET', 'A', '0', '16', '19:05:22', 1, 25, 25, 0, 0, 0, 0, 'TIK', 1, '0', '0', '', '', 0, ''),
-(0, 'S62a3ed69127879.94063827', 1, 50, -1, '2022-06-10', '0000000017_TIK', '', 0, 35, 35, 35, 0, 0, 0, 35, 35, 0, 0, 1, 0, 1, 1, 1, 'TICKET', 'A', '0', '17', '19:18:33', 1, 25, 25, 0, 0, 0, 0, 'TIK', 1, '0', '0', '', '', 0, '');
+(0, 'S627ad9b638ba47.42986889', 1, 44, 156, '2022-05-10', '0000000010_TIK', '0000007_REF', 7, 19.99, 19.99, 19.99, 0, 0, 0, 19.99, 19.99, 0, 0, 2, 0, 2, 1, 1, 'TICKET', 'A', '0', '10', '15:31:55', 1, 20, 20, 0, 0, 0, 0, 'TIK', 1, '0', '0', '', '', 0, '');
 
 -- --------------------------------------------------------
 
@@ -1185,14 +1159,7 @@ INSERT INTO `factura_detalle` (`id_server`, `unique_id`, `id_sucursal`, `id_fact
 (0, 'S627a92c81da962.29451893', 1, 71, 42, -9999, 'Lavado General', 0, '1.0000', '4.0000', '4.00', 0, 2, 'PRODUCTO', 0, '2022-05-10', 0, '10:28:56', -9999, 0, 0),
 (0, 'S627ad683d594b8.76238898', 1, 73, 43, -9999, 'Cambio de balero delantero, derecho', 0, '1.0000', '15.0000', '15.00', 0, 2, 'PRODUCTO', 0, '2022-05-10', 0, '15:17:55', -9999, 0, 0),
 (0, 'S627ad9cbc3dd53.16453053', 1, 76, 44, 23, '', 0, '50.0000', '5.0000', '5.00', 0, 2, 'PRODUCTO', 0, '2022-05-10', 0, '15:31:55', 23, 0, 0),
-(0, 'S627ad9cbc488e3.08054866', 1, 77, 44, 16, '', 0, '55.0000', '14.9900', '14.99', 0, 2, 'PRODUCTO', 0, '2022-05-10', 0, '15:31:55', 16, 0, 0),
-(0, 'S62a37b4ff1bce7.71977708', 1, 78, 45, -9999, 'LAVADO DE MOTOR', 0, '1.0000', '35.0000', '35.00', 0, 1, 'PRODUCTO', 0, '2022-06-10', 0, '11:11:43', -9999, 0, 0),
-(0, 'S62a383d879b794.15816712', 1, 79, 46, -9999, 'LAVADO DE MOTOR', 0, '1.0000', '35.0000', '35.00', 0, 1, 'PRODUCTO', 0, '2022-06-10', 0, '11:48:08', -9999, 0, 0),
-(0, 'S62a383f5971526.16464820', 1, 80, 47, -9999, 'CAMBIO DE ACEITE', 0, '2.0000', '40.0000', '80.00', 0, 1, 'PRODUCTO', 0, '2022-06-10', 0, '11:48:37', -9999, 0, 0),
-(0, 'S62a3847c0fe660.57793670', 1, 81, 48, -9999, 'CAMBIO DE ACEITE', 0, '1.0000', '40.0000', '40.00', 0, 1, 'PRODUCTO', 0, '2022-06-10', 0, '11:50:52', -9999, 0, 0),
-(0, 'S62a3847c103539.77527287', 1, 82, 48, 1, '', 0, '1.0000', '125.0000', '125.00', 0, 1, 'PRODUCTO', 0, '2022-06-10', 0, '11:50:52', 1, 0, 0),
-(0, 'S62a3ea5229d0b8.55866730', 1, 83, 49, -9999, 'LAVADO DE MOTOR', 0, '2.0000', '35.0000', '70.00', 0, 1, 'PRODUCTO', 0, '2022-06-10', 0, '19:05:22', -9999, 0, 0),
-(0, 'S62a3ed6913a104.60863781', 1, 84, 50, -9999, 'LAVADO DE MOTOR', 0, '1.0000', '35.0000', '35.00', 0, 1, 'PRODUCTO', 0, '2022-06-10', 0, '19:18:33', -9999, 0, 0);
+(0, 'S627ad9cbc488e3.08054866', 1, 77, 44, 16, '', 0, '55.0000', '14.9900', '14.99', 0, 2, 'PRODUCTO', 0, '2022-05-10', 0, '15:31:55', 16, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1758,7 +1725,7 @@ CREATE TABLE `lote` (
 
 INSERT INTO `lote` (`id_server`, `unique_id`, `id_sucursal`, `id_lote`, `id_producto`, `fecha_entrada`, `numero`, `cantidad`, `precio`, `id_presentacion`, `vencimiento`, `estado`, `referencia`) VALUES
 (0, 'S62154091858110.66299666', 1, 1, 1, '2022-02-22', 1, '0.0000', '50.0000', 1, '0000-00-00', 'FINALIZADO', 1),
-(0, 'S6276b08c7ec4e2.94319120', 1, 2, 1, '2022-05-07', 2, '5.0000', '50.0000', 1, '0000-00-00', 'VIGENTE', 1),
+(0, 'S6276b08c7ec4e2.94319120', 1, 2, 1, '2022-05-07', 2, '6.0000', '50.0000', 1, '0000-00-00', 'VIGENTE', 1),
 (0, 'S62789edca40445.34667106', 1, 3, 15, '2022-05-08', 1, '576.0000', '7.4700', 15, '0000-00-00', 'VIGENTE', 2),
 (0, 'S62789edca59b77.22386760', 1, 4, 14, '2022-05-08', 1, '576.0000', '29.8700', 14, '0000-00-00', 'VIGENTE', 2),
 (0, 'S62789edca73a29.43531415', 1, 5, 13, '2022-05-08', 1, '576.0000', '5.5900', 13, '0000-00-00', 'VIGENTE', 2),
@@ -1813,24 +1780,23 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`id_server`, `unique_id`, `id_menu`, `nombre`, `prioridad`, `icono`, `visible`) VALUES
-(1, 'O60d7df55068935.53249569', 1, 'Productos', 6, 'fa fa-archive', 1),
+(1, 'O60d7df55068935.53249569', 1, 'Productos', 5, 'fa fa-archive', 1),
 (2, 'O60d7df5507d609.84496391', 2, 'Clientes', 1, 'fa fa-users', 1),
 (3, 'O60d7df550a83d7.68720876', 3, 'Proveedores', 2, 'fa fa-truck', 1),
-(4, 'O60d7df550b3908.32464233', 4, 'Ubicaciones', 5, 'fa fa-database', 1),
-(5, 'O60d7df550d6733.13525706', 5, 'Facturación', 9, 'fa fa-money', 1),
-(6, 'O60d7df550f4507.44116249', 6, 'Inventario', 8, 'fa fa-table', 1),
-(7, 'O60d7df55115309.45560699', 7, 'Caja', 13, 'fa fa-money', 1),
-(8, 'O60d7df551369b1.68239316', 8, 'Cuentas por Cobrar', 11, ' fa fa-credit-card', 1),
+(4, 'O60d7df550b3908.32464233', 4, 'Ubicaciones', 4, 'fa fa-database', 1),
+(5, 'O60d7df550d6733.13525706', 5, 'Facturación', 8, 'fa fa-money', 1),
+(6, 'O60d7df550f4507.44116249', 6, 'Inventario', 7, 'fa fa-table', 1),
+(7, 'O60d7df55115309.45560699', 7, 'Caja', 12, 'fa fa-money', 1),
+(8, 'O60d7df551369b1.68239316', 8, 'Cuentas por Cobrar', 10, ' fa fa-credit-card', 1),
 (9, 'O60d7df55158550.67166195', 9, 'Empleados', 3, 'fa fa-users', 1),
-(10, 'O60d7df55179443.96567625', 10, 'Bancos', 10, 'fa fa-bank', 0),
-(11, 'O60d7df5519a1f8.34444108', 11, 'Compras', 7, 'fa fa-cart-arrow-down', 1),
-(12, 'O60d7df551baa74.56659208', 12, 'Cuentas por Pagar', 12, 'fa fa-balance-scale', 1),
-(13, 'O60d7df551dc836.75570782', 13, 'Cotizaciones', 14, 'fa fa-file-pdf-o', 1),
-(14, 'O60d7df551fd460.24595789', 14, 'Traslados', 16, 'fa fa-exchange', 0),
-(15, 'O60d7df5521f0f8.07652929', 15, 'Utilidades', 18, 'fa fa-gears', 1),
-(16, 'O60d7df55240a13.24187446', 16, 'Pedidos', 15, 'fa fa-file', 0),
-(17, 'O60d7df55262252.08193710', 17, 'Reportes', 17, 'fa fa-file-pdf-o', 1),
-(18, 'O60d7df550d6733.13525709', 18, 'Servicios', 4, 'fa fa-book', 1);
+(10, 'O60d7df55179443.96567625', 10, 'Bancos', 9, 'fa fa-bank', 0),
+(11, 'O60d7df5519a1f8.34444108', 11, 'Compras', 6, 'fa fa-cart-arrow-down', 1),
+(12, 'O60d7df551baa74.56659208', 12, 'Cuentas por Pagar', 11, 'fa fa-balance-scale', 1),
+(13, 'O60d7df551dc836.75570782', 13, 'Cotizaciones', 13, 'fa fa-file-pdf-o', 1),
+(14, 'O60d7df551fd460.24595789', 14, 'Traslados', 15, 'fa fa-exchange', 0),
+(15, 'O60d7df5521f0f8.07652929', 15, 'Utilidades', 16, 'fa fa-gears', 1),
+(16, 'O60d7df55240a13.24187446', 16, 'Pedidos', 14, 'fa fa-file', 0),
+(17, 'O60d7df55262252.08193710', 17, 'Reportes', 15, 'fa fa-file-pdf-o', 1);
 
 -- --------------------------------------------------------
 
@@ -1999,8 +1965,7 @@ INSERT INTO `modulo` (`id_server`, `unique_id`, `id_modulo`, `id_menu`, `nombre`
 (152, 'O60d7df565a81e3.35545248', 152, 12, 'Admin cuentas por pagar', 'Admin cuentas por pagar', 'admin_cxp_p.php', 1),
 (35, 'O60d7df556e8836.67453788', 153, 5, 'Ingreso', 'Ingreso de Vehiculos', 'ingreso.php', 0),
 (1, '', 154, 2, 'Ver Trabajos', 'Ver Trabajos', 'historial_cliente.php', 0),
-(1, '', 155, 5, 'Agregar Detalles Trabajo', 'Agregar Detalles Trabajo', 'agregar_detalles_trabajo.php', 0),
-(1, '', 156, 18, 'Admin Servicios', 'Admin Servicios', 'admin_servicios.php', 1);
+(1, '', 155, 5, 'Agregar Detalles Trabajo', 'Agregar Detalles Trabajo', 'agregar_detalles_trabajo.php', 0);
 
 -- --------------------------------------------------------
 
@@ -2066,13 +2031,7 @@ INSERT INTO `movimiento_producto` (`id_server`, `unique_id`, `id_sucursal`, `id_
 (0, 'S627a92c81d4fb7.42473498', 1, 14, '0000000008_TIK', 'VENTA', 4, 'SALIDA', 'TIK', 8, 2, '2022-05-10', '10:28:56', 1, 1, 0, 0, 0, 42, 0, '0', '0'),
 (0, 'S627abce6edf4a2.19925934', 1, 15, '0000005_II', 'INVENTARIO INICIAL', 11823, 'ENTRADA', 'II', 5, 1, '2022-05-10', '13:28:38', 1, 1, 0, 0, 0, 0, 0, '0', '0'),
 (0, 'S627ad683d565b6.24503709', 1, 16, '0000000009_TIK', 'VENTA', 15, 'SALIDA', 'TIK', 9, 2, '2022-05-10', '15:17:55', 1, 1, 0, 0, 0, 43, 0, '0', '0'),
-(0, 'S627ad9cbc3a468.34988253', 1, 17, '0000000010_TIK', 'VENTA', 19.99, 'SALIDA', 'TIK', 10, 2, '2022-05-10', '15:31:55', 1, 1, 0, 0, 0, 44, 0, '0', '0'),
-(0, 'S62a37b4ff16368.07840822', 1, 18, '0000000012_TIK', 'VENTA', 35, 'SALIDA', 'TIK', 12, 1, '2022-06-10', '11:11:43', 1, 1, 0, 0, 0, 45, 0, '0', '0'),
-(0, 'S62a383d8796358.51666433', 1, 19, '0000000013_TIK', 'VENTA', 35, 'SALIDA', 'TIK', 13, 1, '2022-06-10', '11:48:08', 1, 1, 0, 0, 0, 46, 0, '0', '0'),
-(0, 'S62a383f5967624.43903006', 1, 20, '0000000014_TIK', 'VENTA', 80, 'SALIDA', 'TIK', 14, 1, '2022-06-10', '11:48:37', 1, 1, 0, 0, 0, 47, 0, '0', '0'),
-(0, 'S62a3847c0f7a15.12250948', 1, 21, '0000000015_TIK', 'VENTA', 165, 'SALIDA', 'TIK', 15, 1, '2022-06-10', '11:50:52', 1, 1, 0, 0, 0, 48, 0, '0', '0'),
-(0, 'S62a3ea521f6569.07962317', 1, 22, '0000000016_TIK', 'VENTA', 70, 'SALIDA', 'TIK', 16, 1, '2022-06-10', '19:05:22', 1, 1, 0, 0, 0, 49, 0, '0', '0'),
-(0, 'S62a3ed69131ae2.70032707', 1, 23, '0000000017_TIK', 'VENTA', 35, 'SALIDA', 'TIK', 17, 1, '2022-06-10', '19:18:33', 1, 1, 0, 0, 0, 50, 0, '0', '0');
+(0, 'S627ad9cbc3a468.34988253', 1, 17, '0000000010_TIK', 'VENTA', 19.99, 'SALIDA', 'TIK', 10, 2, '2022-05-10', '15:31:55', 1, 1, 0, 0, 0, 44, 0, '0', '0');
 
 -- --------------------------------------------------------
 
@@ -2146,8 +2105,7 @@ INSERT INTO `movimiento_producto_detalle` (`id_server`, `unique_id`, `id_sucursa
 (0, 'S627abce7006553.53965076', 1, 39, 15, 29, 0, 29, 0, '16.0000', 362.83, 522.5, '0.0000', '16.0000', '0', 0, 1, '2022-05-10', '13:28:38'),
 (0, 'S627abce7014aa0.15849534', 1, 40, 15, 28, 0, 28, 0, '16.0000', 300.885, 432.5, '16.0000', '32.0000', '0', 0, 2, '2022-05-10', '13:28:38'),
 (0, 'S627ad9cbc43fd9.67262094', 1, 41, 17, 23, 0, 23, 0, '50.0000', 1.4, 5, '200.0000', '150.0000', '0', 0, 0, '2022-05-10', '15:31:55'),
-(0, 'S627ad9cbc4d508.09016491', 1, 42, 17, 16, 0, 16, 0, '55.0000', 12, 14.99, '3355.0000', '3300.0000', '0', 0, 0, '2022-05-10', '15:31:55'),
-(0, 'S62a3847c10f6f1.38081253', 1, 43, 21, 1, 0, 1, 0, '1.0000', 50, 125, '6.0000', '5.0000', '0', 0, 0, '2022-06-10', '11:50:52');
+(0, 'S627ad9cbc4d508.09016491', 1, 42, 17, 16, 0, 16, 0, '55.0000', 12, 14.99, '3355.0000', '3300.0000', '0', 0, 0, '2022-05-10', '15:31:55');
 
 -- --------------------------------------------------------
 
@@ -2242,8 +2200,7 @@ INSERT INTO `movimiento_stock_ubicacion` (`id_server`, `unique_id`, `id_sucursal
 (0, 'S627abce700c958.00378894', 1, 39, 29, 0, 0, 32, '16.0000', '2022-05-10', '13:28:38', 0, 0, 29, 0, 15),
 (0, 'S627abce701b5b6.54698445', 1, 40, 28, 0, 0, 30, '16.0000', '2022-05-10', '13:28:38', 0, 0, 28, 0, 15),
 (0, 'S627ad9cbc41d46.85357018', 1, 41, 23, 0, 23, 0, '50.0000', '2022-05-10', '15:31:55', 0, 0, 23, 0, 17),
-(0, 'S627ad9cbc4b8c3.00860077', 1, 42, 16, 0, 12, 0, '55.0000', '2022-05-10', '15:31:55', 0, 0, 16, 0, 17),
-(0, 'S62a3847c10ac53.16804089', 1, 43, 1, 0, 1, 0, '1.0000', '2022-06-10', '11:50:52', 0, 0, 1, 0, 21);
+(0, 'S627ad9cbc4b8c3.00860077', 1, 42, 16, 0, 12, 0, '55.0000', '2022-05-10', '15:31:55', 0, 0, 16, 0, 17);
 
 -- --------------------------------------------------------
 
@@ -2741,35 +2698,6 @@ CREATE TABLE `posicion` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `precios_servicio`
---
-
-CREATE TABLE `precios_servicio` (
-  `id_precio_serv` int(10) NOT NULL,
-  `id_servicio` int(10) NOT NULL,
-  `precio_venta_serv` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
---
--- Volcado de datos para la tabla `precios_servicio`
---
-
-INSERT INTO `precios_servicio` (`id_precio_serv`, `id_servicio`, `precio_venta_serv`) VALUES
-(1, 1, '35.00'),
-(2, 1, '20.00'),
-(3, 1, '15.00'),
-(4, 2, '35.00'),
-(21, 3, '20.00'),
-(22, 4, '15.00'),
-(23, 4, '25.00'),
-(24, 4, '30.00'),
-(25, 5, '25.00'),
-(26, 5, '10.00'),
-(27, 5, '15.00');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `precio_aut`
 --
 
@@ -3070,30 +2998,6 @@ INSERT INTO `rutas` (`id_server`, `unique_id`, `id`, `descripcion`, `ruta`) VALU
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `servicios`
---
-
-CREATE TABLE `servicios` (
-  `id_servicio` int(11) NOT NULL,
-  `id_prod_serv` int(11) DEFAULT -9999,
-  `descripcion` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `estado` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
---
--- Volcado de datos para la tabla `servicios`
---
-
-INSERT INTO `servicios` (`id_servicio`, `id_prod_serv`, `descripcion`, `estado`) VALUES
-(1, -9999, 'LAVADO DE MOTOR', 1),
-(2, -9999, 'CAMBIO DE ACEITE', 1),
-(3, -9999, 'CAMBIO DE BUJIAS', 1),
-(4, -9999, 'ALINEADO DE DIRECCION', 1),
-(5, -9999, 'PULIDO DE PINTURA', 0);
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `stock`
 --
 
@@ -3116,7 +3020,7 @@ CREATE TABLE `stock` (
 --
 
 INSERT INTO `stock` (`id_server`, `unique_id`, `id_sucursal`, `id_stock`, `id_producto`, `stock`, `stock_local`, `precio_unitario`, `costo_unitario`, `create_date`, `update_date`) VALUES
-(0, 'S6215409184f7f9.83803000', 1, 1, 1, '5.0000', '10.0000', 125, 50, '2022-02-22', '2022-06-10'),
+(0, 'S6215409184f7f9.83803000', 1, 1, 1, '6.0000', '10.0000', 125, 50, '2022-02-22', '2022-05-07'),
 (0, 'S62789edca33af0.82758265', 1, 2, 15, '576.0000', '576.0000', 12.31, 7.47, '2022-05-08', '2022-05-08'),
 (0, 'S62789edca53a21.36943134', 1, 3, 14, '576.0000', '576.0000', 49.21, 29.87, '2022-05-08', '2022-05-08'),
 (0, 'S62789edca700c2.67768699', 1, 4, 13, '576.0000', '576.0000', 8.87, 5.59, '2022-05-08', '2022-05-08'),
@@ -3172,7 +3076,7 @@ CREATE TABLE `stock_ubicacion` (
 --
 
 INSERT INTO `stock_ubicacion` (`id_server`, `unique_id`, `id_sucursal`, `id_su`, `id_producto`, `cantidad`, `id_ubicacion`, `id_estante`, `id_posicion`) VALUES
-(0, 'S621540918435b1.62269667', 1, 1, 1, '5.0000', 1, 0, 0),
+(0, 'S621540918435b1.62269667', 1, 1, 1, '6.0000', 1, 0, 0),
 (0, 'S62789edca1a266.64991091', 1, 2, 15, '576.0000', 1, 0, 0),
 (0, 'S62789edca4b992.47842504', 1, 3, 14, '576.0000', 1, 0, 0),
 (0, 'S62789edca6c2f3.43354178', 1, 4, 13, '576.0000', 1, 0, 0),
@@ -4473,12 +4377,6 @@ ALTER TABLE `posicion`
   ADD PRIMARY KEY (`id_posicion`);
 
 --
--- Indices de la tabla `precios_servicio`
---
-ALTER TABLE `precios_servicio`
-  ADD PRIMARY KEY (`id_precio_serv`);
-
---
 -- Indices de la tabla `precio_aut`
 --
 ALTER TABLE `precio_aut`
@@ -4513,12 +4411,6 @@ ALTER TABLE `proveedor`
 --
 ALTER TABLE `rutas`
   ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `servicios`
---
-ALTER TABLE `servicios`
-  ADD PRIMARY KEY (`id_servicio`);
 
 --
 -- Indices de la tabla `stock`
@@ -4660,7 +4552,7 @@ ALTER TABLE `altclitocli`
 -- AUTO_INCREMENT de la tabla `apertura_caja`
 --
 ALTER TABLE `apertura_caja`
-  MODIFY `id_apertura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_apertura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `banco`
@@ -4738,7 +4630,7 @@ ALTER TABLE `consignacion_detalle`
 -- AUTO_INCREMENT de la tabla `controlcaja`
 --
 ALTER TABLE `controlcaja`
-  MODIFY `id_corte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_corte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `correlativo`
@@ -4786,7 +4678,7 @@ ALTER TABLE `cuenta_pagar`
 -- AUTO_INCREMENT de la tabla `detalle_apertura`
 --
 ALTER TABLE `detalle_apertura`
-  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_compra`
@@ -4834,13 +4726,13 @@ ALTER TABLE `estante`
 -- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `factura_detalle`
 --
 ALTER TABLE `factura_detalle`
-  MODIFY `id_factura_detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id_factura_detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT de la tabla `log_cambio_local`
@@ -4870,13 +4762,13 @@ ALTER TABLE `lote`
 -- AUTO_INCREMENT de la tabla `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `modulo`
 --
 ALTER TABLE `modulo`
-  MODIFY `id_modulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
+  MODIFY `id_modulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=156;
 
 --
 -- AUTO_INCREMENT de la tabla `movimiento_caja_tipo`
@@ -4888,13 +4780,13 @@ ALTER TABLE `movimiento_caja_tipo`
 -- AUTO_INCREMENT de la tabla `movimiento_producto`
 --
 ALTER TABLE `movimiento_producto`
-  MODIFY `id_movimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_movimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `movimiento_producto_detalle`
 --
 ALTER TABLE `movimiento_producto_detalle`
-  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT de la tabla `movimiento_producto_pendiente`
@@ -4906,7 +4798,7 @@ ALTER TABLE `movimiento_producto_pendiente`
 -- AUTO_INCREMENT de la tabla `movimiento_stock_ubicacion`
 --
 ALTER TABLE `movimiento_stock_ubicacion`
-  MODIFY `id_movimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id_movimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT de la tabla `mov_caja`
@@ -4969,12 +4861,6 @@ ALTER TABLE `posicion`
   MODIFY `id_posicion` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `precios_servicio`
---
-ALTER TABLE `precios_servicio`
-  MODIFY `id_precio_serv` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-
---
 -- AUTO_INCREMENT de la tabla `precio_aut`
 --
 ALTER TABLE `precio_aut`
@@ -5009,12 +4895,6 @@ ALTER TABLE `proveedor`
 --
 ALTER TABLE `rutas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de la tabla `servicios`
---
-ALTER TABLE `servicios`
-  MODIFY `id_servicio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `stock`
