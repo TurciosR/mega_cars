@@ -185,7 +185,7 @@ $pdf->Cell(127.5,8,utf8_decode(" Nombre del Cliente:        ".$nombre_cliente),1
 $pdf->Cell(67.5,8,utf8_decode(" DUI cliente:        ".$dui_cliente),1,1,'L');
 $pdf->Cell(195,8,utf8_decode(" Dirección:       ".$direccion_cliente),1,1,'L');
 $pdf->Cell(97.5,8,utf8_decode(" No. de Telefono:      ".$numero_cliente),1,0,'L');
-$pdf->Cell(97.5,8,utf8_decode(" No. de Placa de la Motocicleta:      ".$numero_placa),1,1,'L');
+$pdf->Cell(97.5,8,utf8_decode(" No. de Placa del Vehiculo:      ".$numero_placa),1,1,'L');
 $pdf->Ln(4);
 
 //DETALLES DEL TRABAJO REALIZADO
@@ -199,7 +199,7 @@ $pdf->Cell(57.5,8,utf8_decode(" No. de Telefono:    ".$numero_empleado),1,1,'L')
 $pdf->Cell(97.5,8,utf8_decode(" Fecha de ingreso:      ".ED($fecha_ingreso)),1,0,'L');
 $pdf->Cell(97.5,8,utf8_decode(" Fecha de salida:      ".ED($fecha_salida)),1,1,'L');
 $pdf->MultiCell(195,10,utf8_decode(" Diagnostico inicial:   ".$diagnostico_inicial),1,'L');
-
+$pos_inicial_cuadro = $pdf->GetY();
 //LISTAMOS EL DETALLE DE SERVICIOS Y PRODUCTOS FACTURADOS
 $pdf->Cell(195,8,utf8_decode(" Productos y servicios facturados:     "),0,0,'L');
 $pdf->Ln(10);
@@ -267,7 +267,7 @@ $pdf->MultiCellBltArray(200,6,$dataFacturadoServicio);
 //FIN DE LISTADO DE SERVICIOS
 
 
-$pdf->Rect(10,110, 195, 150 ,"");
+$pdf->Rect(10,$pos_inicial_cuadro, 195, 150 ,"");
 
 ob_clean();
 $pdf->Output("reporte_inscripciones_vigente.pdf","I");

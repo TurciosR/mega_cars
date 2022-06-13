@@ -35,8 +35,7 @@ $columns = array(
         },
     'field' => 'id_servicio' ),
     array( 'db' => 'servicios.descripcion', 'dt' => 1, 'field' => 'descripcion' ),
-    array( 'db' => 'servicios.precio_venta', 'dt' => 2, 'field' => 'precio_venta' ),
-    array( 'db' => 'servicios.estado', 'dt' => 3, 'formatter' => function ($estado, $row) {
+    array( 'db' => 'servicios.estado', 'dt' => 2, 'formatter' => function ($estado, $row) {
             if ($estado==0) {
                 // code...
                 return "<label style='color:red'>Inactivo</label><input type='hidden' name='estado' id='estado' value='".$estado."'>";
@@ -45,7 +44,7 @@ $columns = array(
                 return "<label style='color:blue'>Activo</label><input type='hidden' name='estado' id='estado' value='".$estado."'>";
             }
     }, 'field' => 'estado'),
-    array( 'db' => 'servicios.id_servicio', 'dt' => 4, 'formatter' => function ($id_servicio, $row) {
+    array( 'db' => 'servicios.id_servicio', 'dt' => 3, 'formatter' => function ($id_servicio, $row) {
         $menudrop="<div class='btn-group'>
 		<a href='#' data-toggle='dropdown' class='btn btn-primary dropdown-toggle'><i class='fa fa-user icon-white'></i> Menu<span class='caret'></span></a>
 		<ul class='dropdown-menu dropdown-primary'>";
@@ -73,11 +72,11 @@ $columns = array(
         if ($link!='NOT' || $admin=='1') {
             $menudrop.= "<li><a data-toggle='modal' href='editar_servicio.php?id_servicio=".$row['id_servicio']."' data-target='#viewModal' data-refresh='true'><i class=\"fa fa-pencil\"></i>Editar</a></li>";
         }
-        $filename='borrar_servicio.php';
-        $link=permission_usr($id_user, $filename);
-        if ($link!='NOT' || $admin=='1') {
-            $menudrop.= "<li><a data-toggle='modal' href='borrar_servicio.php?id_servicio=" .  $row ['id_servicio']."&process=formDelete"."' data-target='#viewModal' data-refresh='true'><i class=\"fa fa-eraser\"></i> Eliminar</a></li>";
-        }
+        // $filename='borrar_servicio.php';
+        // $link=permission_usr($id_user, $filename);
+        // if ($link!='NOT' || $admin=='1') {
+        //     $menudrop.= "<li><a data-toggle='modal' href='borrar_servicio.php?id_servicio=" .  $row ['id_servicio']."&process=formDelete"."' data-target='#viewModal' data-refresh='true'><i class=\"fa fa-eraser\"></i> Eliminar</a></li>";
+        // }
         $filename='ver_servicio.php';
         $link=permission_usr($id_user, $filename);
         if ($link!='NOT' || $admin=='1') {

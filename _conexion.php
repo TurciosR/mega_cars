@@ -954,4 +954,12 @@ function _fetch_one($query_str){
     $query = _query($query_str);
     return mysqli_fetch_all($query, MYSQLI_ASSOC)[0];
 }
+
+/**
+ * Retorna las filas efectadas por la sentencia update.
+ */
+function _affected_rows(){
+	global $conexion;
+	return mysqli_affected_rows($conexion);
+}
 ?>

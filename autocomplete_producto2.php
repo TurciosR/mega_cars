@@ -23,9 +23,12 @@ if(_num_rows($result)==0)
 	$result = _query($sql);
 }
 
+/**
+ * Evaluamos si es un servicio el que se ha buscado
+ */
 if(_num_rows($result)==0)
 {
-	$sql2 = "SELECT id_prod_serv, descripcion, precio_venta
+	$sql2 = "SELECT id_servicio, id_prod_serv, descripcion
 					FROM servicios
 					WHERE descripcion LIKE '%$query%' 
 					AND estado = 1
@@ -42,10 +45,13 @@ else {
 	$array_prod[] = array();
 	$i=0;
 
+	/**
+	 * Si se ha encontrado un servicio, lo mandamos al javascript
+	 */
 	if($bandera_serv == "si"){
 		while ($row1 = _fetch_array($result))
 		{
-			$array_prod[$i] = array('producto'=>$row1['id_prod_serv']."|".$row1['descripcion']."|".$row1['precio_venta']);
+			$array_prod[$i] = array('producto'=>$row1['id_prod_serv']."|".$row1['id_servicio']."|".$row1['descripcion']);
 			$i++;
 		}
 	}else{

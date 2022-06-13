@@ -175,8 +175,6 @@ a {
 
                             <div class="col-md-7"><br>
 
-                                <a class="btn btn-sm btn-warning pull-right" style="margin-left:1%;" id='abrir'><i
-                                        class="fa fa-check"></i> Abrir</a>
                                 <a class="btn btn-sm btn-danger pull-right" style="margin-left:1%;" href="dashboard.php"
                                     id='salir'><i class="fa fa-mail-reply"></i> F4 Salir</a>
                                 <button type="button" id="preventa" style="margin-left:1%;" name="preventa"

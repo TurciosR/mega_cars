@@ -56,7 +56,6 @@ $links=permission_usr($id_user,$filename);
 									<tr>
 										<th class="col-lg-1">Id</th>
 										<th class="col-lg-1">Nombre Servicio</th>
-										<th class="col-lg-1">Precio de venta ($)</th>
 										<th class="col-lg-1">Estado</th>
 										<th class="col-lg-1">Acci&oacute;n</th>
 									</tr>

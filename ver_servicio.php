@@ -1,7 +1,7 @@
 <?php
 include ("_core.php");
-$id_servicio = $_REQUEST['id_servicio'];
-$sql="SELECT * FROM servicios WHERE id_servicio='$id_servicio'";
+$id_servicio_request = $_REQUEST['id_servicio'];
+$sql="SELECT * FROM servicios WHERE id_servicio='$id_servicio_request'";
 $result = _query($sql);
 $count = _num_rows($result);
 
@@ -38,7 +38,6 @@ $links=permission_usr($id_user,$filename);
 								{
 									$id_servicio=$row["id_servicio"];
 									$nombre_servicio=$row["descripcion"];
-									$valor_servicio=$row["precio_venta"];
 									$estado=$row["estado"];
 									
 									if($estado == 1)
@@ -52,9 +51,31 @@ $links=permission_usr($id_user,$filename);
 									
 									echo"<tr><td>Id </td><td>".$id_servicio."</td></tr>";
 									echo"<tr><td>Nombre del servicio</td><td>".$nombre_servicio."</td></tr>";
-									echo"<tr><td>Valor del servicio</td><td>".$valor_servicio."%</td></tr>";
 									echo"<tr><td>Estado</td><td>".$estado_servicio."</td></tr>";
 								}
+							?>
+						</tbody>
+					</table>
+					<h2>Listado de Precios</h2>
+					<table class="table table-bordered table-striped" id="tableview">
+						<thead>
+							<tr>
+								<th class="col-lg-4"># de Precio</th>
+								<th class="col-lg-4">Precio de Venta</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php
+							$sql="SELECT * FROM precios_servicio AS pr WHERE pr.id_servicio='$id_servicio_request'";
+							$result = _query($sql);
+							$count = _num_rows($result);
+							//Obtener los precios que corresponden al servicio
+							$cr = 1;
+							while ($row = _fetch_array($result))
+							{
+								echo "<tr><td>Precio ".$cr."</td><td>".$row ['precio_venta_serv']."</td></tr>";
+								$cr++;
+							}
 							?>
 						</tbody>
 					</table>

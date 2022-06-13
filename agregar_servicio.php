@@ -146,6 +146,7 @@ function obtener()
 	$monto = round($monto, 4);
 	$subtotal = $monto;
 	$uni = uniqid();
+	$lista = "";
 	$lista.= "<tr class='row100 head service $uni'>";
 	$lista.="<td class='cell100 column10 text-success id_pps' hidden=''>";
 	$lista.="<input id='unidades' name='unidades' value='1' type='hidden'>".+$id_servicio."";
@@ -191,6 +192,80 @@ function obtener()
 	echo json_encode($xdatos);
 }
 
+/**
+ * Funcion realizada para cargar un servicio
+ * precargado
+ */
+function obtener_serv(){
+
+	$id_servicio_prod  = -9999;
+	$id_servicio = $_REQUEST['id_servicio'];
+	$nombre_servicio = $_REQUEST['nombre_servicio'];
+
+	$uni = uniqid();
+	$lista = "";
+	$lista.= "<tr id='service' class='row100 head service $uni'>";
+	$lista.="<td class='cell100 column10 text-success id_pps' hidden=''>";
+	$lista.="<input id='unidades' name='unidades' value='1' type='hidden'>".+$id_servicio_prod."";
+	$lista.="</td>";
+	$lista.="<td class='cell100 column30 text-success descripcion_insumo' >".$nombre_servicio."";
+	$lista.="<input id='exento' name='exento' value='0' type='hidden'>";
+	$lista.="</td>";
+	$lista.="<td class='cell100 column10 text-success'>∞";
+	$lista.="<td hidden class='cell100 column10 text-success' id='cant_stock'>9999";
+	$lista.="</td>";
+	$lista.="<td class='cell100 column10 text-success'>";
+	$lista.="<div><input class=form-control decimal2 cant' id='cant' name='cant' value='1' style='width:60px;' type='text'>";
+	$lista.="</div>";
+	$lista.="</td>";
+	$lista.="<td class='cell100 column10 text-success preccs'>";
+	$lista.="<select disabled class='sel form-control'>";
+	$lista.="<option value='-9999'>UNIDAD</option>";
+	$lista.="</select>";
+	$lista.="</td>";
+	$lista.="<td style='display:none' class='cell100 column10 text-success descp'>";
+	$lista.="<input type'text'='' id='dsd' class='form-control' value='SERVICIO' readonly=''>";
+	$lista.="</td>";
+	$lista.="<td class='cell100 column10 text-success rank_s'>";
+
+	/**
+	 * Obtenemos el monto mas caro para hacer el calculo de la venta actual
+	 */
+	$monto_row = _fetch_array(_query("SELECT * FROM precios_servicio WHERE id_servicio='$id_servicio' ORDER BY precio_venta_serv DESC LIMIT 1"));
+	$monto = $monto_row['precio_venta_serv'];
+
+	/**
+	 * Desglosamos el listado de precios si la persona quiere elegir
+	 * otro precio
+	 */
+	$lista.="<select class='sel_r precio_r form-control '>";
+	$sql = _query("SELECT * FROM precios_servicio WHERE id_servicio='$id_servicio' ORDER BY precio_venta_serv DESC ");	
+	while($datos = _fetch_array($sql)){
+
+		$lista.="<option value='".$datos['precio_venta_serv']."'>".$datos['precio_venta_serv']."</option>";
+	}
+	$lista.="</select>";
+
+	$lista.="</td>";
+	$lista.="<td class='cell100 column10 text-success'>";
+	$lista.="<input id='precio_venta_inicial' name='precio_venta_inicial' value='".$monto."' type='hidden'>";
+	$lista.="<input id='precio_sin_iva' name='precio_sin_iva' value='".round(($monto/1.13),4)."' type='hidden'>";
+	$lista.="<input class='form-control decimal' readonly='' id='precio_venta' name='precio_venta' value='".$monto."' type='text'>";
+	$lista.="</td>";
+	$lista.="<td class='ccell100 column10'>";
+	$lista.="<input id='subtotal_fin' name='subtotal_fin' value='".$monto."' type='hidden'>";
+	$lista.="<input class='decimal txt_box form-control' id='subtotal_mostrar' name='subtotal_mostrar' value='".$monto."' readonly='' type='text'>";
+	$lista.="</td>";
+	$lista.="<td class='cell100 column10  text-center'>";
+	$lista.="<input id='delprod' class='btn btn-danger fa fa-trash Delete' value='' type='button'>";
+	$lista.="</td>";
+	$lista.="</tr>";
+
+	$xdatos['servicio_precargado'] = $lista;
+
+	echo json_encode($xdatos);
+}
+
 if (! isset ( $_REQUEST ['process'] )) {
 	initial();
 } else {
@@ -201,6 +276,9 @@ if (! isset ( $_REQUEST ['process'] )) {
 			break;
 			case 'obtener' :
 				obtener();
+			break;
+			case 'obtener_serv' :
+				obtener_serv();
 			break;
 			}
 		}

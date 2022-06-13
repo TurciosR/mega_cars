@@ -104,7 +104,6 @@ $(document).ready(function() {
         var prod = prod0.split("|");
         var id_prod = prod[0];
         var descrip = prod[1];
-        var precio_venta_servicio = prod[2];
         /**
          * Verificamos si lo que selecciono fue un servicio
          */
@@ -112,11 +111,25 @@ $(document).ready(function() {
             $.ajax({
                 type: "POST",
                 url: "agregar_servicio.php",
-                data: "process=obtener&nombre=" + descrip + "&monto=" + precio_venta_servicio,
+                data: "process=obtener_serv&id_servicio=" + prod[1] + "&nombre_servicio=" + prod[2],
                 dataType: "json",
                 success: function (xdatos) {
                     display_notify('Success', 'Servicio cargado correctamente!');
-                    $("#inventable").prepend(xdatos.servicio);
+                    /**
+                     * Precargamos ese servicio seleccionado en la tabla
+                     */
+                    $("#inventable").prepend(xdatos.servicio_precargado);
+                    $(".decimal2").numeric({
+                        negative: false,
+                        decimal: false
+                    });
+                    $(".86").numeric({
+                        negative: false,
+                        decimalPlaces: 4
+                    });
+                    $(".sel").select2();
+                    $(".sel_r").select2();
+                    
                     totales();
                 }
             });

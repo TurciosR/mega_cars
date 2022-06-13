@@ -1,4 +1,4 @@
-$(function() {
+  $(function() {
 	//binding event click for button in modal form
 	$(document).on("click", "#btnDelete", function(event) {
 	  swal({
@@ -15,7 +15,6 @@ $(function() {
 	  function(isConfirm) {
 		if (isConfirm) {
 		  deleted();
-		  //swal("Exito", "Turno iniciado con exito", "error");
 		} else {
 		  swal("Cancelado", "Operación cancelada", "error");
 		}
@@ -28,6 +27,7 @@ $(function() {
 	});
   
   });
+
   $(document).on("click","#estado", function()
   {
 	var id_servicio = $(this).parents("tr").find("#id_servicio_active").val();
@@ -54,7 +54,6 @@ $(function() {
 	function(isConfirm) {
 	  if (isConfirm) {
 		estado_serv(id_servicio, estado);
-		//swal("Exito", "Turno iniciado con exito", "error");
 	  } else {
 		swal("Cancelado", "Operación cancelada", "error");
 	  }
@@ -81,31 +80,79 @@ $(function() {
 	});
   }
   function senddata() {
-  
-	var dataString = $("#formulario").serialize();
-	var process = $('#process').val();
-  
-	if (process == 'insert') {
-	  var urlprocess = 'admin_agregar_servicio.php';
-	}
-	if (process == 'edited') {
-	  var urlprocess = 'editar_servicio.php';
-	}
-	$.ajax({
-	  type: 'POST',
-	  url: urlprocess,
-	  data: dataString,
-	  dataType: 'json',
-	  success: function(datax) {
-		display_notify(datax.typeinfo, datax.msg);
-		if (datax.typeinfo == "Success") {
-		  setInterval("reload1();", 1000);
+	let urlprocess;
+	let cuantos = 0;
+
+	if($("#inventable>tbody tr").length == 0){
+		display_notify("Error", "Ingrese por lo menos un precio");
+	}else{
+
+		let nombre_servicio = $("#nombre_servicio").val();
+		let id_servicio = $('#id_servicio').val();
+		let process = $('#process').val();
+		let datos_array = [];
+		let text = ""
+		let obj = new Object();
+		
+		let error_precio = false;
+
+		console.log($("#inventable>tbody [data-mode]").length);
+		
+		$("#inventable>tbody tr").each(function() {
+		
+			let id_precio_serv = $(this).data("id_precio");
+			let mode = $(this).data("mode");
+			let precio_venta = $(this).find(".precio_venta").val();
+
+			if (parseFloat(precio_venta) > 0) {
+				obj.id_precio_serv = id_precio_serv;
+				obj.mode           = mode;
+				obj.precio_venta   = precio_venta;
+				
+				text = JSON.stringify(obj);
+				datos_array.push(text);
+
+				cuantos++;
+			}else{
+				error_precio = true;
+			}
+		});
+	
+		datos_array = JSON.parse("["+datos_array+"]");
+		datos_array = JSON.stringify(datos_array);
+
+		
+		if (process == 'insert') {
+			urlprocess = 'admin_agregar_servicio.php';
 		}
-	  }
-	});
-  }
-  function reload1() {
-	location.href = 'admin_servicios.php';
+		if (process == 'edited') {
+			urlprocess = 'editar_servicio.php';
+		}
+		if(error_precio == true){
+			display_notify("Error", "Verifique el/los campo(s) del precio de venta");
+		}else{
+			console.log(datos_array);
+			console.log(urlprocess);
+			$.ajax({
+				type: 'POST',
+				url: urlprocess,
+				data: {
+					id_servicio: id_servicio,
+					nombre_servicio: nombre_servicio,
+					datos: datos_array,
+					process : process,
+					cuantos: cuantos
+				},
+				dataType: 'json',
+				success: function(datax) {
+					display_notify(datax.typeinfo, datax.msg);
+					if (datax.typeinfo == "Success") {
+						setInterval("reload1();", 1000);
+					}
+				}
+			});
+		}
+	}
   }
   function deleted() {
 	var id_servicio = $('#id_servicio').val();
@@ -118,10 +165,15 @@ $(function() {
 	  success: function(datax) {
 		display_notify(datax.typeinfo, datax.msg);
 		if (datax.typeinfo == "Success") {
-		  setInterval("location.reload1();", 1000);
+		  setInterval("reload1();", 1000);
 		  $('#deleteModal').hide();
 		}
 	  }
 	});
   }
+
+  function reload1() {
+	location.href = 'admin_servicios.php';
+  }
+  
   
