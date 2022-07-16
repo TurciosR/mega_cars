@@ -264,7 +264,16 @@ a {
                     $sqlcli=_query("SELECT * FROM cliente WHERE id_sucursal='$id_sucursal' ORDER BY nombre");
                     while ($row_cli = _fetch_array($sqlcli))
                     {
-                      echo "<option value='".$row_cli["id_cliente"]."'";
+                      /**
+                       * Evaluamos si este cliente retiene el 10%
+                       */
+                      if($row_cli['retiene10'] == 1){
+                        $retiene_10 = 0.10;
+                      }else{
+                        $retiene_10 = 0;
+                      }
+
+                      echo "<option data-retencion='$retiene_10' value='".$row_cli["id_cliente"]."'";
                       if($id_cliente_bd != "")
                       {
                         if ($row_cli["id_cliente"] == $id_cliente_bd)
@@ -569,10 +578,15 @@ a {
                                                                         SUBTOTAL $:</td>
                                                                     <td class="cell100 column10 text-right  text-green"
                                                                         id='total_gravado_iva'>0.00</td>
-                                                                    <td class="cell100 column15 leftt  text-bluegrey ">
+                                                                    <!-- Se comento el espacio de VENTA EXENTA porque no se necesita -->
+                                                                    <!-- <td class="cell100 column15 leftt  text-bluegrey ">
                                                                         VENTA EXENTA $:</td>
                                                                     <td class="cell100 column10  text-right text-green"
-                                                                        id='total_exenta'>0.00</td>
+                                                                        id='total_exenta'>0.00</td> -->
+                                                                    <td class="cell100 column20 leftt  text-bluegrey ">
+                                                                        VENTA NO SUJETA $:</td>
+                                                                    <td class="cell100 column5  text-right text-green"
+                                                                        id='total_no_sujeta'>0.00</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="cell100 column15 leftt text-bluegrey ">
@@ -1389,6 +1403,7 @@ function insertar()
   $iva= $_POST['iva'];
   $retencion= $_POST['retencion'];
   $venta_exenta= $_POST['venta_exenta'];
+  $venta_no_sujeta = $_POST['venta_no_sujeta'];
   $total_menos_retencion=$_POST['total'];
   $total = $retencion+$_POST['total'];
 
@@ -1529,6 +1544,7 @@ function insertar()
       'iva' =>$iva,
       'retencion'=>$retencion,
       'venta_exenta'=>$venta_exenta,
+      'venta_no_sujeta'=>$venta_no_sujeta,
       'total_menos_retencion'=>$total_menos_retencion,
       'total' => $total,
       'id_usuario'=>$id_empleado,

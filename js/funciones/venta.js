@@ -691,6 +691,9 @@ function totales() {
     var monto_percepcion = $('#monto_percepcion').val();
     var porcentaje_descuento = parseFloat($("#porcentaje_descuento").val());
 
+    let retencion_cliente = $("#id_cliente option:selected").data('retencion');
+    console.log(retencion_cliente);
+
     var total_sin_iva = 0;
     //fin impuestos
 
@@ -781,11 +784,19 @@ function totales() {
         $('#total_gravado').html(total_mostrar);
         $('#total_exenta').html(total_exento.toFixed(2));
 
+        /**
+         * Calculando retencion del 10% con el total sin IVA
+         */
+        descontado_retencion = parseFloat(
+            (total_mostrar * retencion_cliente).toFixed(2)
+        );
+        $('#total_no_sujeta').html(descontado_retencion);
+
         var total_iva_mostrar = 0.00;
 
         total_iva = total_gravado * (parseFloat(iva));
         total_iva = round(total_iva, 2)
-        total_gravado_iva = total_gravado + total_iva;
+        total_gravado_iva = total_gravado;
 
 
         total_gravado_iva_mostrar = total_gravado_iva.toFixed(2);
@@ -799,7 +810,7 @@ function totales() {
             total_retencion1 = total_gravado * porc_retencion1;
         if (total_gravado >= monto_retencion10)
             total_retencion10 = total_gravado * porc_retencion10;
-        total_final = total_definitivo + total_percepcion - (total_retencion1 + total_retencion10) - total_descuento;
+        total_final = total_mostrar + total_percepcion - (total_retencion1 + total_retencion10) - total_descuento - descontado_retencion;
 
 
         total_final_mostrar = total_final.toFixed(2);
@@ -957,6 +968,12 @@ $(document).on('change', '#con_pago', function(event) {
   event.preventDefault();
   /* Act on the event */
   totales();
+});
+
+$(document).on('change', '#id_cliente', function(event) {
+    event.preventDefault();
+    /* Act on the event */
+    totales();
 });
 
 function totalFact() {
@@ -1266,6 +1283,7 @@ function senddata() {
     var iva = $('#total_iva').text(); /*porcentaje de iva de la factura*/
     var retencion = $('#total_retencion').text(); /*total retencion cuando un cliente retiene 1 o 10 %*/
     var venta_exenta = $('#total_exenta').text(); /*total venta exenta*/
+    var venta_no_sujeta = $('#total_no_sujeta').text(); /* toal venta no sujeta */
     var total = $('#totalfactura').val();
     var tipo_pago = $('#con_pago').val();
     var id_vendedor = $("#vendedor").val();
@@ -1351,6 +1369,7 @@ function senddata() {
     dataString += '&subtotal=' + subtotal;
     dataString += '&sumas=' + sumas;
     dataString += '&venta_exenta=' + venta_exenta;
+    dataString += '&venta_no_sujeta=' + venta_no_sujeta;
     dataString += '&suma_gravada=' + suma_gravada;
     dataString += '&tipo_impresion=' + tipo_impresion;
     dataString += '&id_factura=' + id_factura;
@@ -1931,7 +1950,6 @@ $(document).on('change', '#tipo_impresion', function(event) {
         actualiza_subtotal(tr);
     });
 });
-
 
 function addProductList(id_proda, tip) {
     $(".select2-dropdown").hide();

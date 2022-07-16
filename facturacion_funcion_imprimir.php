@@ -1249,6 +1249,7 @@ function print_ccf($id_fact,$tipo_id,$nitcte,$nrccte,$nombreapecte,$direccion){
 		$numero_doc=trim($row_fact['numero_doc']);
 		$total=$row_fact['total'];
 		$retencion = $row_fact['retencion'];
+		$venta_no_sujeta = $row_fact['venta_no_sujeta'];
 		$nrccte = $row_fact['num_fact_impresa_e'];
 		$nitcte = $row_fact['numero_doc_e'];
 		$nombreapecte = $row_fact['nombre'];
@@ -1442,7 +1443,10 @@ function print_ccf($id_fact,$tipo_id,$nitcte,$nrccte,$nombreapecte,$direccion){
 			$cuantos=$cuantos+1;
 		}
 	}
+	/* Asignamos el total de la factura a total final */
+	$total_final = $total;
 	$calc_iva=round($iva*$total_gravado,4);
+	$total_descontado_retencion = sprintf("%.4f",$venta_no_sujeta);
 	$total_iva_format=sprintf("%.4f",$calc_iva);
 	$total_final_format=sprintf("%.4f",$total_final-$retencion);
 	list($entero,$decimal)=explode('.',sprintf("%.2f",$total_final_format));
@@ -1494,9 +1498,8 @@ function print_ccf($id_fact,$tipo_id,$nitcte,$nrccte,$nombreapecte,$direccion){
 	$arrayL[41] = p_set($arrayL[41],$total_iva_format,100,120,"L");
 	$arrayL[43] = p_set($arrayL[43],$subtotal_gravado_print,100,120,"L");
 	$arrayL[45] = p_set($arrayL[45],$retencion,100,120,"L");
-	$arrayL[47] = p_set($arrayL[47],"0.0000",100,120,"L");
+	$arrayL[47] = p_set($arrayL[47],$total_descontado_retencion,100,120,"L");
 	$arrayL[49] = p_set($arrayL[49],$total_value_exento,100,120,"L");
-	$arrayL[51] = p_set($arrayL[51],"0.0000",100,120,"L");
 	$arrayL[53] = p_set($arrayL[53],sprintf("%.2f",$total_final_format),100,120,"L");
 
 
